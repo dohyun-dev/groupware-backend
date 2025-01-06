@@ -1,4 +1,4 @@
-package com.ex.groupware.local.emp.domain.entity
+package com.ex.groupware.domain.emp.domain.entity
 
 import com.ex.groupware.global.entity.BaseTimeEntity
 import jakarta.persistence.*
