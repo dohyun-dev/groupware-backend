@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: groupware-backend
+
+  datasource:
+    url: jdbc:h2:tcp://localhost:1521/~/groupware-db
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+
+  h2:
+    console:
+      enabled: true
+      path: /h2-console
