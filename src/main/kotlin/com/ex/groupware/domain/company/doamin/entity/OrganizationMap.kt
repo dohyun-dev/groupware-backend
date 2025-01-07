@@ -1,21 +1,23 @@
 package com.ex.groupware.domain.company.doamin.entity
 
 import com.ex.groupware.global.entity.BaseTimeEntity
+import io.hypersistence.utils.hibernate.id.Tsid
 import jakarta.persistence.*
 import java.time.LocalDate
 
+@Entity
 class OrganizationMap(
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Tsid
     val id: Long,
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "company_id", nullable = false)
     val company: Company,
 
-    val isReserved: Boolean,
+    var isReserved: Boolean,
 
-    val effectiveDate: LocalDate,
+    var effectiveDate: LocalDate,
 
     var memo: String?,
 ): BaseTimeEntity() {

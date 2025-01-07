@@ -1,12 +1,13 @@
 package com.ex.groupware.domain.company.doamin.entity
 
 import com.ex.groupware.global.entity.BaseTimeEntity
+import io.hypersistence.utils.hibernate.id.Tsid
 import jakarta.persistence.*
 
 @Entity
 class Department (
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Tsid
     val id: Long,
 
     @Column(nullable = false, length = 100)
@@ -15,6 +16,9 @@ class Department (
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_dept_id", nullable = true)
     var parentDepartment: Department?,
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
+    val childDepartments: MutableList<Department> = mutableListOf(),
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organization_map_id", nullable = false)
