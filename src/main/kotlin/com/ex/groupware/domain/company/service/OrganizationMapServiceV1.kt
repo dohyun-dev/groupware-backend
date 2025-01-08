@@ -1,7 +1,7 @@
 package com.ex.groupware.domain.company.service
 
-import com.ex.groupware.domain.company.doamin.entity.Company
-import com.ex.groupware.domain.company.doamin.entity.OrganizationMap
+import com.ex.groupware.domain.company.domain.entity.Company
+import com.ex.groupware.domain.company.domain.entity.OrganizationMap
 
 interface OrganizationMapServiceV1 {
     fun findOrganizationMapChangeHistory(companyCode: String)

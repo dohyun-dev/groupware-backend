@@ -1,6 +1,6 @@
 package com.ex.groupware.domain.company.service
 
-import com.ex.groupware.domain.company.doamin.entity.Company
+import com.ex.groupware.domain.company.domain.entity.Company
 
 interface CompanyServiceV1 {
     fun findDetail(companyCode: String): Company

@@ -1,4 +1,4 @@
-package com.ex.groupware.domain.company.doamin.entity
+package com.ex.groupware.domain.company.domain.entity
 
 import com.ex.groupware.global.entity.BaseTimeEntity
 import io.hypersistence.utils.hibernate.id.Tsid
