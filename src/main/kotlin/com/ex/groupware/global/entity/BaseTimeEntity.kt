@@ -8,15 +8,13 @@ import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.jpa.domain.support.AuditingEntityListener
 import java.time.LocalDateTime
 
-
 @MappedSuperclass
 @EntityListeners(AuditingEntityListener::class)
 abstract class BaseTimeEntity {
-
     @CreatedDate
     @Column(updatable = false)
-    lateinit var createdAt: LocalDateTime
+    var createdAt: LocalDateTime? = null
 
     @LastModifiedDate
-    lateinit var updatedAt: LocalDateTime
+    var updatedAt: LocalDateTime? = null
 }

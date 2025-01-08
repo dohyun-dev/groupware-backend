@@ -6,22 +6,21 @@ import jakarta.persistence.*
 
 @Entity
 class Department (
-    @Id
-    @Tsid
-    val id: Long,
-
     @Column(nullable = false, length = 100)
     var name: String, // 부서
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_dept_id", nullable = true)
-    var parentDepartment: Department?,
+    var parent: Department? = null,
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL])
-    val childDepartments: MutableList<Department> = mutableListOf(),
+    @OneToMany(fetch = FetchType.LAZY, cascade = [CascadeType.ALL], orphanRemoval = true)
+    var children: MutableList<Department> = mutableListOf(),
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "organization_map_id", nullable = false)
-    val organizationMap: OrganizationMap,
+    var organizationMap: OrganizationMap? = null,
 ): BaseTimeEntity() {
+    @Id
+    @Tsid
+    val id: String? = null
 }

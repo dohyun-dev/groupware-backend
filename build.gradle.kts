@@ -31,6 +31,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
     implementation("io.hypersistence:hypersistence-utils-hibernate-60:3.7.3")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.2")
     compileOnly("org.projectlombok:lombok")
     developmentOnly("org.springframework.boot:spring-boot-devtools")
     developmentOnly("org.springframework.boot:spring-boot-docker-compose")
