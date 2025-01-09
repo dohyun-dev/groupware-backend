@@ -6,28 +6,27 @@ import jakarta.persistence.*
 
 @Entity
 class Company(
-    @Id
-    @Tsid
-    val companyCode: Long?,
-
     @Column(nullable = true, unique = true, length = 100)
-    var name: String, // 사명
+    var name: String,
 
     @Column(nullable = true, length = 15)
-    var representativeNumber: String?, // 대표 전화번호
+    var representativeContact: String? = null,
 
     @Column(nullable = true, length = 200)
-    var address: String?, // 주소
+    var address: String? = null,
 
     @Column(nullable = true, unique = true, length = 20)
-    var businessRegistrationNumber: String?, // 사업자 등록 번호
+    var businessRegistrationNumber: String? = null,
 
     @Column(nullable = true, unique = true, length = 20)
-    var corporateRegistrationNumber: String?, // 법인 등록 번호
+    var corporateRegistrationNumber: String? = null,
 ): BaseTimeEntity() {
 
+    @Id
+    @Tsid
+    val id: String? = null;
+
     constructor(name: String): this(
-        null,
         name,
         null,
         null,
@@ -37,7 +36,7 @@ class Company(
 
     fun update(updateParam: Company) {
         name = updateParam.name
-        representativeNumber = updateParam.representativeNumber
+        representativeContact = updateParam.representativeContact
         address = updateParam.address
         businessRegistrationNumber = updateParam.businessRegistrationNumber
         corporateRegistrationNumber = updateParam.corporateRegistrationNumber

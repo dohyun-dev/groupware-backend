@@ -2,6 +2,7 @@ package com.ex.groupware.domain.company.service.impl
 
 import com.ex.groupware.domain.company.domain.entity.Company
 import com.ex.groupware.domain.company.domain.repository.CompanyRepository
+import com.ex.groupware.domain.company.dto.CompanyDto
 import com.ex.groupware.domain.company.service.CompanyServiceV1
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
@@ -18,9 +19,9 @@ class CompanyServiceV1Impl(
     }
 
     @Transactional
-    override fun update(companyCode: String, updateParam: Company) {
+    override fun update(companyCode: String, updateParam: CompanyDto) {
         val company = companyRepository.findById(companyCode)
             .orElseThrow { throw RuntimeException("회사 코드가 존재하지 않습니다.") }
-        company.update(updateParam)
+        company.update(updateParam.toEntity())
     }
 }
